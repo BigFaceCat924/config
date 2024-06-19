@@ -1,10 +1,3 @@
--- 动态加载 configs 目录下的所有 Lua 文件
-local config_path = vim.fn.stdpath('config') .. '/configs/'
-local files = vim.fn.glob(config_path .. '*.lua', true, true)
-for _, file in ipairs(files) do
-    local module = file:sub(#config_path + 1, -5)
-    require('configs.' .. module)
-end
 -- 自动安装lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,12 +11,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-
-require("plugins")
-require("configs.coc")
-
--- 配置主题
-vim.cmd [[colorscheme tokyonight]]
 
 -- 配置tab等于4个空格
 vim.opt.tabstop = 4      -- number of visual spaces per TAB
@@ -45,6 +32,23 @@ vim.cmd('filetype plugin on')
 -- 使用系统剪切板
 vim.opt.clipboard:append('unnamedplus')
 
+-- 加载插件
+require("plugins")
+
+-- 加载coc配置
+require("configs.coc")
+
+-- 配置主题
+vim.cmd [[colorscheme gruvbox]]
+
+-- 配置 coc.nvim
+vim.g.coc_global_extensions = {
+    'coc-clangd',   -- Clangd support
+    'coc-json',     -- JSON support
+    'coc-pyright',  -- Python support
+    'coc-snippets', -- Snippets support
+    'coc-marketplace',
+    'coc-lua',
+}
+-- 加载快捷键配置
 require("mappings")
-
-

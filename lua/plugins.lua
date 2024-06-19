@@ -6,7 +6,7 @@ local my_plugins = {
     { 'morhetz/gruvbox' },
     {
         "neoclide/coc.nvim",
-        branch = 'release'
+        branch = 'release',
     },
     {
         "nvim-tree/nvim-tree.lua",
@@ -39,6 +39,7 @@ local my_plugins = {
         end,
     },
     {
+        --colorscheme
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
@@ -74,9 +75,36 @@ local my_plugins = {
                 lastplace_open_folds = true
             }
         end
-    }
+    },
+    {
+        'windwp/nvim-autopairs',
+        config = true
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('lualine').setup()
+        end
+    },
+    {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {}
+    },
+    {
+        --colorscheme
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000
+    },
 }
-
 -- configuration for lazy itself.
 local lazy_opts = {
     ui = {

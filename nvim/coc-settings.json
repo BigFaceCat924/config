@@ -1,7 +1,0 @@
-{
-  "snippets.ultisnips.pythonPrompt": false,
-  "clangd.enabled": true,
-  "clangd.arguments": ["--clang-tidy", "--completion-style=detailed"],
-  "Lua.format.enable": true,
-  "Lua.diagnostics.globals": ["vim"]
-}
