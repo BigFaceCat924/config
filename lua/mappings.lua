@@ -15,6 +15,7 @@ map('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', {
     silent = true,
     desc = "buffer goto prev"
 })
+map('n', '<leader>x', "<cmd>bdelete<CR>", { desc = "Close current buffer" })
 
 -- 窗口切换
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
@@ -28,7 +29,7 @@ map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 -- telescope
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
-map('n', '<leader>fg', builtin.live_grep, {desc = "Live grep"})
+map('n', '<leader>fg', builtin.live_grep, { desc = "Live grep" })
 map('n', '<leader>fb', builtin.buffers, { desc = "Find buffers" })
 map('n', '<leader>fh', builtin.help_tags, {})
 
