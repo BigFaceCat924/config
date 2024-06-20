@@ -3,7 +3,8 @@
     "clangd.enabled": true,
     "clangd.arguments": [
         "--clang-tidy",
-        "--completion-style=detailed"
+        "--completion-style=detailed",
+        "--fallback-style=none"
     ],
     "Lua.format.enable": true,
     "Lua.diagnostics.globals": [
