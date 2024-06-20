@@ -1,7 +1,10 @@
 local my_plugins = {
     {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        run = ':TSUpdate',
+        config = function()
+            require("configs.nvim-treesitter")
+        end
     },
     { 'morhetz/gruvbox' },
     {
