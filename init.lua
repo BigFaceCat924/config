@@ -25,6 +25,9 @@ vim.g.maplocalleader = ' '
 -- 显示行号
 vim.wo.number = true
 
+-- 禁用鼠标
+vim.opt.mouse = ""
+
 -- 启用语法高亮
 vim.cmd('syntax on')
 vim.cmd('filetype plugin on')
@@ -49,6 +52,20 @@ vim.g.coc_global_extensions = {
     'coc-snippets', -- Snippets support
     'coc-marketplace',
     'coc-lua',
+}
+
+-- 设置ssh剪切板互通
+vim.g.clipboard = {
+    name = 'Lemonade',
+    copy = {
+        ['+'] = 'lemonade copy',
+        ['*'] = 'lemonade copy',
+    },
+    paste = {
+        ['+'] = 'lemonade paste',
+        ['*'] = 'lemonade paste',
+    },
+    cache_enabled = 0,
 }
 -- 加载快捷键配置
 require("mappings")
