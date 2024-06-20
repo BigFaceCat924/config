@@ -40,3 +40,15 @@ map('v', 'y', '"+y', { noremap = true, silent = true })
 -- 头文件源文件之间切换
 map('n', '<leader>sw', ':CocCommand clangd.switchSourceHeader<CR>',
     { noremap = true, silent = true, desc = "switch source header" })
+
+-- toggleterm
+local Terminal   = require('toggleterm.terminal').Terminal
+local float_term = Terminal:new({ direction = "float", hidden = true })
+
+function _FLOAT_TERM_TOGGLE()
+    float_term:toggle()
+end
+
+-- 设置 Alt+i 打开/隐藏浮动终端
+map("n", "<A-i>", "<cmd>lua _FLOAT_TERM_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Open float terminal" })
+map("t", "<A-i>", "<cmd>lua _FLOAT_TERM_TOGGLE()<CR>", { noremap = true, silent = true, desc = "Hide float terminal" })

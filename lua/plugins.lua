@@ -107,6 +107,17 @@ local my_plugins = {
         name = "catppuccin",
         priority = 1000
     },
+    {
+        "lewis6991/gitsigns.nvim",
+        config = function()
+            require('gitsigns').setup()
+        end
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
+    }
 }
 -- configuration for lazy itself.
 local lazy_opts = {
