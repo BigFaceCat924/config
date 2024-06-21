@@ -1,5 +1,4 @@
 {
-    "snippets.ultisnips.pythonPrompt": false,
     "clangd.enabled": true,
     "clangd.arguments": [
         "--clang-tidy",
@@ -11,5 +10,13 @@
         "vim"
     ],
     "coc.preferences.formatOnSave": true,
-    "suggest.noselect": true
+    "snippets.ultisnips.pythonPrompt": false,
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+    "suggest.snippetIndicator": "⚡",
+    "suggest.enablePreselect": true,
+    "snippets.extends": {
+        "h": [
+            "cpp"
+        ]
+    }
 }

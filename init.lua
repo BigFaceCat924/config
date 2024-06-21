@@ -46,26 +46,35 @@ vim.cmd [[colorscheme gruvbox]]
 
 -- 配置 coc.nvim
 vim.g.coc_global_extensions = {
-    'coc-clangd',   -- Clangd support
-    'coc-json',     -- JSON support
-    'coc-pyright',  -- Python support
-    'coc-snippets', -- Snippets support
+    'coc-clangd',  -- Clangd support
+    'coc-json',    -- JSON support
+    'coc-pyright', -- Python support
     'coc-marketplace',
+    'coc-snippets',
     'coc-lua',
 }
 
--- 设置ssh剪切板互通
-vim.g.clipboard = {
-    name = 'Lemonade',
-    copy = {
-        ['+'] = 'lemonade copy',
-        ['*'] = 'lemonade copy',
-    },
-    paste = {
-        ['+'] = 'lemonade paste',
-        ['*'] = 'lemonade paste',
-    },
-    cache_enabled = 0,
-}
+-- 检测是否通过 SSH 登录
+local function is_ssh()
+    return vim.loop.os_getenv("SSH_CLIENT") ~= nil or
+        vim.loop.os_getenv("SSH_TTY") ~= nil or
+        vim.loop.os_getenv("SSH_CONNECTION") ~= nil
+end
+
+if is_ssh() then
+    -- 如果是远程登录，则设置ssh剪切板互通
+    vim.g.clipboard = {
+        name = 'Lemonade',
+        copy = {
+            ['+'] = 'lemonade copy',
+            ['*'] = 'lemonade copy',
+        },
+        paste = {
+            ['+'] = 'lemonade paste',
+            ['*'] = 'lemonade paste',
+        },
+        cache_enabled = 0,
+    }
+end
 -- 加载快捷键配置
 require("mappings")

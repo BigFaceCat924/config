@@ -117,6 +117,20 @@ local my_plugins = {
         'akinsho/toggleterm.nvim',
         version = "*",
         config = true
+    },
+    {
+        'sindrets/diffview.nvim',
+        config = function()
+            require("configs.diffview")
+        end
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        config = function()
+            require('luasnip')
+        end
     }
 }
 -- configuration for lazy itself.
