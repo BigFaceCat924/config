@@ -42,7 +42,7 @@ require("plugins")
 require("configs.coc")
 
 -- 配置主题
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme catppuccin-macchiato]]
 
 -- 配置 coc.nvim
 vim.g.coc_global_extensions = {

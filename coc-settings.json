@@ -12,11 +12,10 @@
     "coc.preferences.formatOnSave": true,
     "snippets.ultisnips.pythonPrompt": false,
     "snippets.userSnippetsDirectory": "~/.config/nvim/snippets",
+    "snippets.ultisnips.enable": true,
+    "snippets.ultisnips.directories": [
+        "UltiSnips"
+    ],
     "suggest.snippetIndicator": "⚡",
-    "suggest.enablePreselect": true,
-    "snippets.extends": {
-        "h": [
-            "cpp"
-        ]
-    }
+    "suggest.enablePreselect": true
 }

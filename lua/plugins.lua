@@ -6,7 +6,6 @@ local my_plugins = {
             require("configs.nvim-treesitter")
         end
     },
-    { 'morhetz/gruvbox' },
     {
         "neoclide/coc.nvim",
         branch = 'release',
@@ -56,17 +55,17 @@ local my_plugins = {
         end
     },
     {
+        "ahmedkhalf/project.nvim",
+        config = function()
+            require("configs.project_nvim")
+        end
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require('telescope').load_extension('projects')
-        end
-    },
-    {
-        "ahmedkhalf/project.nvim",
-        config = function()
-            require("configs.project_nvim")
         end
     },
     {
@@ -125,11 +124,24 @@ local my_plugins = {
         end
     },
     {
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        'honza/vim-snippets'
+    },
+    {
+        'nvimdev/dashboard-nvim',
+        event = 'VimEnter',
         config = function()
-            require('luasnip')
+            require('configs.dashboard')
+        end,
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+        }
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup()
         end
     }
 }
